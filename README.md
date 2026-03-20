@@ -35,15 +35,18 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 <img width="1440" alt="Architecture diagram" src="https://github.com/user-attachments/assets/26e68dea-fa4b-4a2b-979a-f0119af7d0c1" />
 
 ### How the chat works
-<div align="left">
-<img width="600" alt="Chat UI in action" src="https://github.com/user-attachments/assets/147a6e47-0bdc-42b1-9e1b-c33da27d2265" />
-</div>
 
 1. User types into the chat bar (visible on every page).
 2. `script.js` sends `POST /api/chat` with the message.
 3. The backend prepends a system prompt containing Brian's bio, projects, skills, and experience, then calls OpenAI.
 4. The response returns to the frontend and renders with a typewriter effect.
 5. Relevant page links are optionally surfaced as resource cards.
+
+<div align="center">
+  <img width="45%" alt="Chat UI in action" src="https://github.com/user-attachments/assets/147a6e47-0bdc-42b1-9e1b-c33da27d2265" />
+  &nbsp;&nbsp;
+  <img width="45%" alt="Quick questions sheet" src="https://github.com/user-attachments/assets/7cf519c2-b39d-4fe9-9ab1-53ae25160296" />
+</div>
 
 ---
 
