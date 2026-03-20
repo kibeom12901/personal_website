@@ -10,8 +10,8 @@
 
 **A mobile-first portfolio with a GPT-powered chat interface, liquid canvas animations, and a multi-page layout.**
 
-<!-- PUT HERO SCREENSHOT HERE
-  ![Landing page](./assets/images/readme/hero.png)
+<!-- PUT HERO SCREENSHOT HERE — replace this comment with:
+<img width="1400" alt="Landing page" src="https://github.com/user-attachments/assets/YOUR-UUID" />
 -->
 
 [Live Site](https://kibeom12901.github.io) · [Frontend Repo](https://github.com/kibeom12901/personal_website) · [Backend Repo](https://github.com/kibeom12901/personal_website_server)
@@ -21,7 +21,8 @@
 ---
 
 ## Overview
-<img width="1322" height="754" alt="Screenshot 2026-03-20 at 1 56 24 PM" src="https://github.com/user-attachments/assets/0efa3da4-5837-4f34-b226-bb26f7ba3e5f" />
+
+<img width="1322" alt="Site overview" src="https://github.com/user-attachments/assets/0efa3da4-5837-4f34-b226-bb26f7ba3e5f" />
 
 This is the **frontend** of Brian Kim's personal portfolio — a multi-page static site with a chat-style UI backed by a separate Node.js/Express server that calls the OpenAI API to answer questions about Brian in real time.
 
@@ -31,9 +32,12 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 
 ## Architecture
 
-<img width="1440" height="1016" alt="image" src="https://github.com/user-attachments/assets/26e68dea-fa4b-4a2b-979a-f0119af7d0c1" />
+<img width="1440" alt="Architecture diagram" src="https://github.com/user-attachments/assets/26e68dea-fa4b-4a2b-979a-f0119af7d0c1" />
 
 ### How the chat works
+<div align="left">
+<img width="600" alt="Chat UI in action" src="https://github.com/user-attachments/assets/147a6e47-0bdc-42b1-9e1b-c33da27d2265" />
+</div>
 
 1. User types into the chat bar (visible on every page).
 2. `script.js` sends `POST /api/chat` with the message.
@@ -41,16 +45,11 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 4. The response returns to the frontend and renders with a typewriter effect.
 5. Relevant page links are optionally surfaced as resource cards.
 
-<!-- PUT CHAT UI SCREENSHOT HERE
-  ![Chat UI](./assets/images/readme/chat.png)
--->
-
 ---
 
 ## Site map
 
-<img width="1440" height="1016" alt="image" src="https://github.com/user-attachments/assets/7ef6379c-91d8-4f62-b1a1-f31cbffe83b2" />
-
+<img width="1440" alt="Site map" src="https://github.com/user-attachments/assets/7ef6379c-91d8-4f62-b1a1-f31cbffe83b2" />
 
 | Page | File | Description |
 |------|------|-------------|
