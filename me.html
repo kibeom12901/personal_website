@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Me | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a class="badge-btn" href="index.html"><div class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Back to Home &nbsp;›</a>
+
+<div class="app-shell">
+<main class="page-content">
+  <section class="content-card">
+
+    <!-- ── TOP: profile card — drop-in, no typewriter ── -->
+    <div class="profile-grid ai-drop-zone">
+      <div class="profile-photo-wrap">
+        <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/intro.png" alt="Brian Kim"/>
+      </div>
+      <div>
+        <h1>Brian (Kibeom) Kim</h1>
+        <p class="muted-line">Electrical &amp; Electronics Engineering • Tufts University</p>
+        <p class="status-badge">⚡ EE @ Tufts · Circuits, Embedded &amp; C/Python</p>
+        <div class="profile-tags">
+          <span>C / C++</span><span>Python</span><span>STM32</span><span>Embedded</span><span>Builder</span><span>Global</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BOTTOM: AI-streamed bio paragraphs ── -->
+    <div class="bio-section">
+      <p>Hey 👋 I'm Brian — an EE student at Tufts University with a passion for building things that sit at the intersection of hardware, software, and AI. I grew up across Korea, Singapore, India, and the U.S., which means I'm pretty comfortable jumping into a new environment and figuring things out fast.</p>
+
+      <p>Most recently I interned at KETI (Korea Electronics Technology Institute) where I worked on the ST-P3 autonomous driving framework — debugging Python scripts, managing Linux simulation environments, and digging deep into Embodied AI research. Before that I was at Stochastic as a software engineer intern, building full-stack React interfaces and maintaining API endpoints for a scalable AI product.</p>
+
+      <p>On campus I was part of the Tufts Solar Vehicle Project, designing electrical systems for solar-powered cars. I also co-founded Storpill — an affordable pill dispenser for the elderly — and donated all proceeds to Zero Waste SG.</p>
+
+      <p>I'm focused on impactful engineering work where implementation quality and product clarity both matter. Open to internships and collaborations once I finish my service commitment.</p>
+    </div>
+
+    <!-- ── EXPERIENCE ── -->
+    <div class="xp-section ai-drop-zone">
+      <h2 class="section-label">Experience</h2>
+      <div class="xp-list">
+        <div class="xp-item">
+          <div class="xp-dot"></div>
+          <div>
+            <p class="xp-role">System Engineer Intern — KETI</p>
+            <p class="xp-meta">Aug 2024 – Oct 2024 · South Korea</p>
+            <p class="xp-desc">ST-P3 autonomous driving, Python debugging, Linux systems, Embodied AI research.</p>
+          </div>
+        </div>
+        <div class="xp-item">
+          <div class="xp-dot"></div>
+          <div>
+            <p class="xp-role">Software Engineer Intern — Stochastic</p>
+            <p class="xp-meta">May 2024 – Jul 2024 · Remote</p>
+            <p class="xp-desc">Full-stack development with React, API design, scalable system architecture.</p>
+          </div>
+        </div>
+        <div class="xp-item">
+          <div class="xp-dot"></div>
+          <div>
+            <p class="xp-role">Member — Tufts Solar Vehicle Project</p>
+            <p class="xp-meta">Sep 2023 – May 2024 · Medford, MA</p>
+            <p class="xp-desc">Designed cutting-edge electrical systems for solar vehicles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EDUCATION ── -->
+    <div class="xp-section ai-drop-zone">
+      <h2 class="section-label">Education</h2>
+      <div class="xp-list">
+        <div class="xp-item">
+          <div class="xp-dot"></div>
+          <div>
+            <p class="xp-role">BE, Electrical &amp; Electronics Engineering — Tufts University</p>
+            <p class="xp-meta">2022 – 2028</p>
+            <p class="xp-desc">EE Society · Solar Vehicle · Theta Chi · Club Baseball</p>
+          </div>
+        </div>
+        <div class="xp-item">
+          <div class="xp-dot"></div>
+          <div>
+            <p class="xp-role">IB Diploma — UWC South East Asia</p>
+            <p class="xp-meta">2019 – 2022 · Singapore</p>
+            <p class="xp-desc">Engineering Club (co-chair) · Initiative for Peace · Model UN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LANGUAGES ── -->
+    <div class="lang-row ai-drop-zone">
+      <span class="lang-chip">🇺🇸 English — Native</span>
+      <span class="lang-chip">🇰🇷 Korean — Native</span>
+    </div>
+
+  </section>
+
+  <button class="quick-hide" type="button">⌄ Hide quick questions</button>
+</main>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>
+
+<p class="powered">Powered by Fastfolio</p>
+<script src="./script.js"></script>
+</body>
+</html>

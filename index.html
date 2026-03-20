@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Brian Kim | Electrical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body class="home static-ui">
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<a class="badge-btn" href="index.html">
+  <div class="badge-icon">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  </div>
+  Brian Kim Portfolio &nbsp;›
+</a>
+
+<div class="hero">
+  <div class="logo-wrap">
+    <svg viewBox="0 0 60 60" fill="none">
+      <rect width="60" height="60" rx="13" fill="#111"/>
+      <text x="30" y="37" text-anchor="middle" fill="white" font-size="20" font-family="Inter" font-weight="800">BK</text>
+    </svg>
+  </div>
+  <p class="hero-greeting" style="font-size: clamp(1rem, 2.2vw, 1.35rem); font-weight: 600; color: #222; letter-spacing: -0.02em; margin-bottom: 6px;">Hey, I'm Brian (Kibeom) Kim 👋</p>
+  <h1 class="hero-title" style="font-size: clamp(2rem, 6.8vw, 5.8rem); letter-spacing: -0.04em; line-height: 1; white-space: nowrap;">Electrical Engineer</h1>
+  <div class="memoji">
+    <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/intro.png" alt="Brian Kim" style="object-position: center 15%;"/>
+  </div>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything..." />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span><span class="nav-label">Me</span></a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span><span class="nav-label">Projects</span></a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span><span class="nav-label">Skills</span></a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span><span class="nav-label">Fun</span></a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span><span class="nav-label">Contact</span></a>
+</nav>
+
+<div class="watermark">BRIAN KIM</div>
+<p class="hint" id="hint">Move your cursor to paint</p>
+<script src="./script.js"></script>
+</body>
+</html>

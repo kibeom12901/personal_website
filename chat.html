@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chat | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<a class="badge-btn" href="index.html">
+  <div class="badge-icon">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  </div>
+  Brian Kim Portfolio &nbsp;›
+</a>
+
+<main class="chat-view">
+  <div class="chat-top">
+    <div class="chat-avatar">
+      <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/intro.png" alt="Brian Kim"/>
+    </div>
+  </div>
+
+  <div class="chat-bubble" id="user-question">What are your projects?</div>
+  <div class="typing" id="typing"><span></span><span></span><span></span></div>
+
+  <article class="chat-answer" id="chat-answer" style="display:none;">
+    <div id="chat-resource-cards" class="chat-resource-cards" style="display:none;"></div>
+    <p id="chat-answer-body" class="robotic-output"></p>
+  </article>
+</main>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>
+
+<script src="./script.js"></script>
+</body>
+</html>

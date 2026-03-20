@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fun | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+<style>
+  .fun-hero-section {
+    margin-bottom: 2rem;
+  }
+
+  .fun-intro {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+  }
+
+  /* Big featured card */
+  .fun-featured {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 340px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .fun-featured img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .fun-featured:hover img {
+    transform: scale(1.04);
+  }
+
+  .fun-featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.4rem 1.6rem;
+  }
+
+  .fun-featured-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+  }
+
+  .fun-featured-overlay h3 {
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+
+  .fun-featured-overlay p {
+    color: rgba(255,255,255,0.82);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Two-column grid for secondary cards */
+  .fun-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .fun-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 240px;
+    cursor: pointer;
+  }
+
+  .fun-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .fun-card img.crop-golf {
+    object-position: center bottom !important;
+  }
+
+  .fun-card img.crop-travel {
+    object-position: center 75% !important;
+  }
+
+  .fun-card:hover img {
+    transform: scale(1.06);
+  }
+
+  .fun-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.68) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1.1rem;
+  }
+
+  .fun-card-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.28);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 16px;
+    margin-bottom: 0.35rem;
+    width: fit-content;
+  }
+
+  .fun-card-overlay h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+  }
+
+  .fun-card-overlay p {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  /* Stats row */
+  .fun-stats {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .fun-stat {
+    flex: 1;
+    min-width: 80px;
+    background: #f5f5f7;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    text-align: center;
+  }
+
+  .fun-stat .stat-num {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #111;
+    display: block;
+  }
+
+  .fun-stat .stat-label {
+    font-size: 0.72rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .lightbox-close:hover { opacity: 1; }
+
+  @media (max-width: 480px) {
+    .fun-featured { height: 260px; }
+    .fun-grid-2 { grid-template-columns: 1fr; }
+    .fun-card { height: 220px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a class="badge-btn" href="index.html"><div class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Back to Home &nbsp;›</a>
+
+<div class="app-shell">
+<main class="page-content">
+  <section class="content-card">
+
+    <div class="section-block fun-hero-section">
+      <h2>Fun &amp; Life</h2>
+      <p class="fun-intro">Outside engineering, I stay sharp through movement, competition, and travel. Living in India, Singapore, Korea, and the U.S. gave me the chance to experience different cultures early, and that turned into a real love for exploring new places.</p>
+
+      <!-- Featured: Skiing -->
+      <div class="fun-featured">
+        <img src="./IMG_0871.JPG" alt="Skiing in Korea"/>
+        <div class="fun-featured-overlay">
+          <span class="fun-featured-tag">⛷️ Winter Sport</span>
+          <h3>Skiing</h3>
+          <p>Speed, focus, and clean carving turns. Korea's mountain runs are a perfect winter reset — nothing clears the mind like dropping into a steep slope.</p>
+        </div>
+      </div>
+
+      <!-- Two cards side by side -->
+      <div class="fun-grid-2">
+        <div class="fun-card">
+          <img src="./IMG_8676.jpeg" alt="Golf course in the mountains" class="crop-golf"/>
+          <div class="fun-card-overlay">
+            <span class="fun-card-tag">⛳ Golf</span>
+            <h3>Golf</h3>
+            <p>Course strategy, clean strikes, and mountain views. Golf trains the same patience and precision I bring to engineering.</p>
+          </div>
+        </div>
+
+        <div class="fun-card">
+          <img src="./travel.jpeg" alt="Travelling — Swiss Alps" class="crop-travel"/>
+          <div class="fun-card-overlay">
+            <span class="fun-card-tag">✈️ Travel</span>
+            <h3>Exploring</h3>
+            <p>This photo is from Switzerland. I love travelling, seeing new landscapes, and getting the kind of perspective that only comes from being somewhere completely different.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="fun-stats">
+        <div class="fun-stat">
+          <span class="stat-num">4+</span>
+          <span class="stat-label">Countries Lived</span>
+        </div>
+        <div class="fun-stat">
+          <span class="stat-num">⛷️</span>
+          <span class="stat-label">Skier</span>
+        </div>
+        <div class="fun-stat">
+          <span class="stat-num">⛳</span>
+          <span class="stat-label">Golfer</span>
+        </div>
+        <div class="fun-stat">
+          <span class="stat-num">⚾</span>
+          <span class="stat-label">Club Baseball</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <button class="quick-hide" type="button">⌄ Hide quick questions</button>
+</main>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item active" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>
+
+<p class="powered">Powered by Fastfolio</p>
+<script src="./script.js"></script>
+</body>
+</html>

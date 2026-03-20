@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+<style>
+
+  .contact-wrap { padding: 0.2rem 0 1rem; }
+
+  /* Header */
+  .contact-eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 0.55rem;
+    opacity: 0;
+    animation: fade-up 0.4s 0.05s ease forwards;
+  }
+
+  .contact-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.07;
+    color: #0a0a0a;
+    margin-bottom: 1.1rem;
+    opacity: 0;
+    animation: fade-up 0.45s 0.10s ease forwards;
+  }
+
+  /* Availability pill */
+  .avail-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem 0.3rem 0.55rem;
+    margin-bottom: 1.9rem;
+    opacity: 0;
+    animation: fade-up 0.45s 0.15s ease forwards;
+  }
+
+  .avail-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+    flex-shrink: 0;
+    animation: pulse-dot 2.2s ease infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
+    50%      { box-shadow: 0 0 0 5px rgba(22,163,74,0); }
+  }
+
+  .avail-text {
+    font-size: 0.77rem;
+    font-weight: 600;
+    color: #16a34a;
+  }
+
+  /* Contact cards */
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .c-card {
+    display: flex;
+    align-items: center;
+    gap: 0.95rem;
+    padding: 0.9rem 1rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: inherit;
+    border: 1.5px solid rgba(0,0,0,0.07);
+    background: #fafafa;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.22s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+    opacity: 0;
+    animation: fade-up 0.45s ease forwards;
+  }
+
+  .c-card:nth-child(1) { animation-delay: 0.22s; }
+  .c-card:nth-child(2) { animation-delay: 0.30s; }
+  .c-card:nth-child(3) { animation-delay: 0.38s; }
+
+  .c-card:hover {
+    transform: translateY(-3px) scale(1.008);
+    box-shadow: 0 14px 38px rgba(0,0,0,0.09);
+    border-color: transparent;
+  }
+
+  .c-card.gmail:hover    { background: #fff5f5; }
+  .c-card.linkedin:hover { background: #eff6ff; }
+  .c-card.github:hover   { background: #f4f4f6; }
+
+  /* shimmer sweep */
+  .c-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(108deg, transparent 38%, rgba(255,255,255,0.6) 52%, transparent 66%);
+    transform: translateX(-110%);
+    transition: transform 0.55s ease;
+    pointer-events: none;
+  }
+  .c-card:hover::after { transform: translateX(110%); }
+
+  .c-icon {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1.2rem;
+  }
+
+  .c-card.gmail    .c-icon { background: #fee2e2; }
+  .c-card.linkedin .c-icon { background: #dbeafe; }
+  .c-card.github   .c-icon { background: #e9e9ec; }
+
+  .c-body { flex: 1; min-width: 0; }
+
+  .c-label {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: #b0b0b0;
+    margin-bottom: 2px;
+  }
+
+  .c-value {
+    font-size: 0.91rem;
+    font-weight: 600;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .c-arrow {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem; color: #999;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .c-card:hover .c-arrow { background: rgba(0,0,0,0.1); transform: translateX(2px); }
+
+  /* CV Download */
+  .cv-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.95rem 1.1rem;
+    border-radius: 15px;
+    border: 1.5px solid #111;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s ease,
+                transform 0.22s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.22s ease;
+    opacity: 0;
+    animation: fade-up 0.45s 0.46s ease forwards;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.6rem;
+  }
+
+  .cv-btn:hover {
+    background: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  }
+
+  .cv-btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(108deg, transparent 38%, rgba(255,255,255,0.1) 52%, transparent 66%);
+    transform: translateX(-110%);
+    transition: transform 0.55s ease;
+    pointer-events: none;
+  }
+  .cv-btn:hover::after { transform: translateX(110%); }
+
+  .cv-left {
+    display: flex; align-items: center; gap: 0.85rem;
+  }
+
+  .cv-icon-wrap {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+  }
+
+  .cv-label-sm {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 2px;
+  }
+
+  .cv-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .cv-badge {
+    display: inline-flex; align-items: center; gap: 0.32rem;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.1);
+    padding: 0.28rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  /* Divider & note */
+  .contact-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 1.4rem 0 1.1rem;
+    opacity: 0;
+    animation: fade-up 0.4s 0.55s ease forwards;
+  }
+
+  .contact-note {
+    font-size: 0.81rem;
+    color: #aaa;
+    line-height: 1.65;
+    opacity: 0;
+    animation: fade-up 0.4s 0.60s ease forwards;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+</style>
+</head>
+<body class="no-rainbow">
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a class="badge-btn" href="index.html"><div class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Back to Home &nbsp;›</a>
+
+<div class="app-shell">
+<main class="page-content">
+  <section class="content-card">
+    <div class="section-block contact-wrap">
+
+      <p class="contact-eyebrow">Get in touch</p>
+      <h2 class="contact-headline">Let's build<br/>something great.</h2>
+
+      <div class="avail-row">
+        <span class="avail-dot"></span>
+        <span class="avail-text">Open to internships &amp; collaborations</span>
+      </div>
+
+      <!-- Cards -->
+      <div class="contact-cards">
+
+        <a class="c-card gmail"
+           href="https://mail.google.com/mail/?view=cm&to=Kimkibeom1290@gmail.com"
+           target="_blank" rel="noreferrer">
+          <div class="c-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#ea4335"/></svg>
+          </div>
+          <div class="c-body">
+            <div class="c-label">Email</div>
+            <div class="c-value"><span class="__cf_email__" data-cfemail="dc97b5b1b7b5beb9b3b1edeee5ec9cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</span></div>
+          </div>
+          <div class="c-arrow">→</div>
+        </a>
+
+        <a class="c-card linkedin"
+           href="https://www.linkedin.com/in/brian-kim-2b3b40262/"
+           target="_blank" rel="noreferrer">
+          <div class="c-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="c-body">
+            <div class="c-label">LinkedIn</div>
+            <div class="c-value">Brian Kim</div>
+          </div>
+          <div class="c-arrow">→</div>
+        </a>
+
+        <a class="c-card github"
+           href="https://github.com/kibeom12901"
+           target="_blank" rel="noreferrer">
+          <div class="c-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="#111"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <div class="c-body">
+            <div class="c-label">GitHub</div>
+            <div class="c-value">kibeom12901</div>
+          </div>
+          <div class="c-arrow">→</div>
+        </a>
+
+      </div>
+
+      <!-- CV download — bold dark CTA -->
+      <a class="cv-btn"
+         href="https://docs.google.com/document/d/1R_ndpSbF7Pnptnhy0haO2IUpl0N-ecEF32rU8T0wcDc/export?format=pdf"
+         target="_blank" rel="noreferrer">
+        <div class="cv-left">
+          <div class="cv-icon-wrap">📄</div>
+          <div>
+            <div class="cv-label-sm">Resume</div>
+            <div class="cv-title">Download CV</div>
+          </div>
+        </div>
+        <div class="cv-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          PDF
+        </div>
+      </a>
+
+      <div class="contact-divider"></div>
+      <p class="contact-note">Currently serving in the Republic of Korea Army. Available for async collaboration — open to roles starting after service completion in July 2026.</p>
+
+    </div>
+  </section>
+
+  <button class="quick-hide" type="button">⌄ Hide quick questions</button>
+</main>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item active" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>

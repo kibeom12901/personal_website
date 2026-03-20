@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body class="projects-page">
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a class="badge-btn" href="index.html"><div class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Back to Home &nbsp;›</a>
+
+<div class="app-shell">
+<main class="page-content">  <section class="content-card">
+    <div class="section-block">
+      <div class="projects-hero">
+        <h2>My Projects</h2>
+        <p class="projects-intro">Hardware-first builds with clear engineering outcomes.</p>
+      </div>
+      <div class="project-row">
+        <div class="project-track">
+          <article class="project-tile">
+            <div class="project-head">
+              <p>Embedded Audio System</p>
+              <h3>VS1003B MP3 Player</h3>
+              <span class="project-chip">STM32 · FatFS · Decoder</span>
+            </div>
+            <img
+              class="project-image-flex"
+              src="./vs1003.png"
+              data-fallback-srcs="https://portfolio-website-nine-zeta-33.vercel.app/images/intro.png"
+              alt="VS1003B MP3 Player"
+            />
+          </article>
+          <article class="project-tile">
+            <div class="project-head">
+              <p>Autonomous Navigation</p>
+              <h3>ST-P3</h3>
+              <span class="project-chip">Controls · Perception</span>
+            </div>
+            <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/ST_P3.png" alt="ST-P3"/>
+          </article>
+          <article class="project-tile">
+            <div class="project-head">
+              <p>Biomedical Signal</p>
+              <h3>Pulse Oximeter</h3>
+              <span class="project-chip">Sensor Stability</span>
+            </div>
+            <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/pulse_oximeter.png" alt="Pulse"/>
+          </article>
+          <article class="project-tile">
+            <div class="project-head">
+              <p>Embedded Sensing</p>
+              <h3>Soil Moisture Audio Guide</h3>
+              <span class="project-chip">Accessibility · Analog I/O</span>
+            </div>
+            <img
+              class="project-image-flex"
+              src="./soil.png"
+              data-fallback-srcs="https://portfolio-website-nine-zeta-33.vercel.app/images/intro.png"
+              alt="Soil Moisture Sensor"
+            />
+          </article>
+          <article class="project-tile">
+            <div class="project-head">
+              <p>Embedded + FPGA</p>
+              <h3>Snake Game</h3>
+              <span class="project-chip">VGA · Game Logic</span>
+            </div>
+            <img src="https://portfolio-website-nine-zeta-33.vercel.app/images/snake.png" alt="FPGA Snake Game"/>
+          </article>
+        </div>
+      </div>
+      <div class="project-carousel-nav" aria-label="Project carousel controls">
+        <button class="project-arrow project-arrow-prev" type="button" aria-label="Previous projects">←</button>
+        <button class="project-arrow project-arrow-next" type="button" aria-label="Next projects">→</button>
+      </div>
+    </div>
+
+    <div class="project-directive">
+      <p class="project-directive-title">Project Focus Areas</p>
+      <p><strong>1. VS1003B MP3 Player:</strong> End-to-end STM32 audio playback with VS1003B decoding, SD streaming, and control logic integration.</p>
+      <p><strong>2. Earthquake Structure Response Modeling:</strong> Spring-damper dynamics model to evaluate resonance and safer structural behavior under seismic loading.</p>
+      <p><strong>3. Pulse Oximeter Stabilization:</strong> Hardware-driven signal conditioning and validation for more reliable biomedical sensing output.</p>
+      <p><strong>4. Soil Moisture Audio Guide:</strong> Accessibility-first sensing flow with moisture detection and direct auditory feedback cues.</p>
+      <p><strong>5. FPGA Snake Game:</strong> Full game implementation with VGA rendering, input handling, collision logic, and score control.</p>
+    </div>
+  </section>
+
+  <button class="quick-hide" type="button">⌄ Hide quick questions</button>
+</main>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>
+
+<p class="powered">Powered by Fastfolio</p>
+<script src="./script.js"></script>
+</body>
+</html>

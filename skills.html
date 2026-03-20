@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skills | Brian Kim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"/>
+<style>
+
+  .skills-wrap { padding: 0.2rem 0 0.5rem; }
+
+  /* ── Header ── */
+  .skills-headline {
+    font-size: clamp(1.85rem, 5vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #0a0a0a;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fade-up 0.45s 0.05s ease forwards;
+  }
+
+  /* ── Groups ── */
+  .skill-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .skill-group {
+    opacity: 0;
+    animation: fade-up 0.45s ease forwards;
+  }
+  .skill-group:nth-child(1) { animation-delay: 0.14s; }
+  .skill-group:nth-child(2) { animation-delay: 0.22s; }
+  .skill-group:nth-child(3) { animation-delay: 0.30s; }
+  .skill-group:nth-child(4) { animation-delay: 0.38s; }
+
+  .group-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+  }
+
+  /* ── Chip grid ── */
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.48rem;
+  }
+
+  .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #111;
+    cursor: default;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
+  }
+
+  /* shimmer on hover */
+  .skill-chip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(108deg, transparent 38%, rgba(255,255,255,0.15) 52%, transparent 66%);
+    transform: translateX(-110%);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .skill-chip:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  }
+  .skill-chip:hover::before { transform: translateX(110%); }
+
+  /* featured / accent chips stay dark but glow their category color */
+  .group-hw   .skill-chip:hover { background: #1a1a1a; box-shadow: 0 8px 22px rgba(245,158,11,0.25); border-color: #f59e0b40; }
+  .group-sw   .skill-chip:hover { background: #1a1a1a; box-shadow: 0 8px 22px rgba(59,130,246,0.22); border-color: #3b82f640; }
+  .group-web  .skill-chip:hover { background: #1a1a1a; box-shadow: 0 8px 22px rgba(34,197,94,0.22);  border-color: #22c55e40; }
+  .group-tool .skill-chip:hover { background: #1a1a1a; box-shadow: 0 8px 22px rgba(168,85,247,0.22); border-color: #a855f740; }
+
+  /* stagger chip pop-in per group */
+  .skill-group.anim-done .skill-chip {
+    opacity: 0;
+    transform: scale(0.88);
+    animation: chip-pop 0.2s ease forwards;
+  }
+
+  /* stagger each chip inside its group */
+  .skill-group.anim-done .skill-chip:nth-child(1)  { animation-delay: 0.00s; }
+  .skill-group.anim-done .skill-chip:nth-child(2)  { animation-delay: 0.04s; }
+  .skill-group.anim-done .skill-chip:nth-child(3)  { animation-delay: 0.08s; }
+  .skill-group.anim-done .skill-chip:nth-child(4)  { animation-delay: 0.12s; }
+  .skill-group.anim-done .skill-chip:nth-child(5)  { animation-delay: 0.16s; }
+  .skill-group.anim-done .skill-chip:nth-child(6)  { animation-delay: 0.20s; }
+  .skill-group.anim-done .skill-chip:nth-child(7)  { animation-delay: 0.24s; }
+  .skill-group.anim-done .skill-chip:nth-child(8)  { animation-delay: 0.28s; }
+
+  @keyframes chip-pop {
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* note */
+  .skills-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 1.6rem 0 1.1rem;
+    opacity: 0;
+    animation: fade-up 0.4s 0.48s ease forwards;
+  }
+
+  .skills-note {
+    font-size: 0.81rem;
+    color: #bbb;
+    line-height: 1.65;
+    opacity: 0;
+    animation: fade-up 0.4s 0.52s ease forwards;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+</style>
+</head>
+<body>
+<canvas id="liquid-canvas"></canvas>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a class="badge-btn" href="index.html"><div class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>Back to Home &nbsp;›</a>
+
+<div class="app-shell">
+<main class="page-content">
+  <section class="content-card">
+    <div class="section-block skills-wrap">
+
+      <h2 class="skills-headline">Skills &amp; Expertise</h2>
+
+      <div class="skill-groups">
+
+        <!-- Embedded & Hardware -->
+        <div class="skill-group group-hw">
+          <div class="group-label">Embedded &amp; Hardware</div>
+          <div class="chip-grid">
+            <span class="skill-chip">STM32</span>
+            <span class="skill-chip">C</span>
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">Assembly</span>
+            <span class="skill-chip">VHDL</span>
+            <span class="skill-chip">Embedded Systems</span>
+            <span class="skill-chip">Digital Circuits</span>
+            <span class="skill-chip">FatFS / SD Card</span>
+          </div>
+        </div>
+
+        <!-- Software & Systems -->
+        <div class="skill-group group-sw">
+          <div class="group-label">Software &amp; Systems</div>
+          <div class="chip-grid">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">MATLAB</span>
+            <span class="skill-chip">Linux</span>
+            <span class="skill-chip">Git / GitHub</span>
+            <span class="skill-chip">REST APIs</span>
+            <span class="skill-chip">Docker</span>
+          </div>
+        </div>
+
+        <!-- Web & Product -->
+        <div class="skill-group group-web">
+          <div class="group-label">Web &amp; Product</div>
+          <div class="chip-grid">
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">HTML / CSS</span>
+            <span class="skill-chip">Next.js</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-group group-tool">
+          <div class="group-label">Tools &amp; Productivity</div>
+          <div class="chip-grid">
+            <span class="skill-chip">Excel</span>
+            <span class="skill-chip">PowerPoint</span>
+            <span class="skill-chip">Word</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skills-divider"></div>
+      <p class="skills-note">EE @ Tufts · specialising in embedded systems, hardware design, and full-stack development.</p>
+
+    </div>
+  </section>
+
+  <button class="quick-hide" type="button">⌄ Hide quick questions</button>
+</main>
+</div>
+
+<div class="chat-bar">
+  <input class="chat-input" placeholder="Ask me anything…" />
+  <button class="chat-send" aria-label="Send">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="me.html"><span class="nav-icon">😊</span>Me</a>
+  <a class="nav-item" href="projects.html"><span class="nav-icon">💼</span>Projects</a>
+  <a class="nav-item active" href="skills.html"><span class="nav-icon">⚡</span>Skills</a>
+  <a class="nav-item" href="fun.html"><span class="nav-icon">🎉</span>Fun</a>
+  <a class="nav-item" href="contact.html"><span class="nav-icon">📬</span>Contact</a>
+</nav>
+
+<p class="powered">Powered by Fastfolio</p>
+<script src="./script.js"></script>
+<script>
+  // Trigger chip pop-in after group fades up
+  document.querySelectorAll('.skill-group').forEach((group, i) => {
+    setTimeout(() => {
+      group.classList.add('anim-done');
+    }, 140 + i * 80);
+  });
+</script>
+</body>
+</html>
