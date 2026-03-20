@@ -69,5 +69,7 @@ For local development, the frontend can call a local server running on port `300
 - `/fun.html` - fun and life page
 - `/contact.html` - contact page
 - `/chat.html` - chat interface
-- `/styles.css` - site styling
-- `/script.js` - interactivity and chat logic
+- `/assets/css/styles.css` - site styling
+- `/assets/js/script.js` - interactivity and chat logic
+- `/assets/images/projects/` - project images
+- `/assets/images/fun/` - fun and travel images
