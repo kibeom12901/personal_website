@@ -46,10 +46,6 @@ Server repository:
 
 - `Add your server repo link here`
 
-Example format:
-
-- `https://github.com/kibeom12901/personal-website-server`
-
 The frontend currently expects a chat API endpoint at:
 
 ```text
@@ -75,4 +71,3 @@ For local development, the frontend can call a local server running on port `300
 - `/chat.html` - chat interface
 - `/styles.css` - site styling
 - `/script.js` - interactivity and chat logic
-
