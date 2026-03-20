@@ -32,7 +32,8 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 
 ## Architecture
 
-<img width="1440" alt="Architecture diagram" src="https://github.com/user-attachments/assets/26e68dea-fa4b-4a2b-979a-f0119af7d0c1" />
+<img width="1440" height="890" alt="image" src="https://github.com/user-attachments/assets/a57302ad-00d0-41d5-a3d1-c4f68e595a5d" />
+
 
 ### How the chat works
 
