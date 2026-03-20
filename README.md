@@ -49,7 +49,8 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 
 ## Site map
 
-<img width="1440" alt="Site map" src="https://github.com/user-attachments/assets/7ef6379c-91d8-4f62-b1a1-f31cbffe83b2" />
+<img width="1440" height="636" alt="image" src="https://github.com/user-attachments/assets/97dfe624-bbe8-4e32-8e52-4d47e60088ab" />
+
 
 | Page | File | Description |
 |------|------|-------------|
