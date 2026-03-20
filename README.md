@@ -34,7 +34,6 @@ The site is optimised for mobile and deployed on GitHub Pages. The chat backend 
 
 <img width="1440" height="890" alt="image" src="https://github.com/user-attachments/assets/a57302ad-00d0-41d5-a3d1-c4f68e595a5d" />
 
-
 ### How the chat works
 
 1. User types into the chat bar (visible on every page).
