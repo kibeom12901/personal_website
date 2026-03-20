@@ -21,6 +21,7 @@
 ---
 
 ## Overview
+<img width="1322" height="754" alt="Screenshot 2026-03-20 at 1 56 24 PM" src="https://github.com/user-attachments/assets/0efa3da4-5837-4f34-b226-bb26f7ba3e5f" />
 
 This is the **frontend** of Brian Kim's personal portfolio — a multi-page static site with a chat-style UI backed by a separate Node.js/Express server that calls the OpenAI API to answer questions about Brian in real time.
 
