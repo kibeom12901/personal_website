@@ -1,75 +1,159 @@
-# Personal Website
+# Brian Kim — Personal Portfolio
 
-Personal portfolio website focused on embedded systems, hardware, and engineering projects.
+<div align="center">
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white)
+
+**A mobile-first portfolio with a GPT-powered chat interface, liquid canvas animations, and a multi-page layout.**
+
+<!-- PUT HERO SCREENSHOT HERE
+  ![Landing page](./assets/images/readme/hero.png)
+-->
+
+[Live Site](https://kibeom12901.github.io) · [Frontend Repo](https://github.com/kibeom12901/personal_website) · [Backend Repo](https://github.com/kibeom12901/personal_website_server)
+
+</div>
+
+---
 
 ## Overview
 
-This repository contains the frontend for my personal website. It includes:
+This is the **frontend** of Brian Kim's personal portfolio — a multi-page static site with a chat-style UI backed by a separate Node.js/Express server that calls the OpenAI API to answer questions about Brian in real time.
 
-- a landing page
-- project highlights
-- skills and experience
-- fun / life section
-- contact page
-- chat-style UI for exploring the portfolio
+The site is optimised for mobile and deployed on GitHub Pages. The chat backend lives in a separate repository and is deployed independently.
 
-## Tech Stack
+---
 
-- HTML
-- CSS
-- JavaScript
+## Architecture
 
-## Local Development
+<img width="1440" alt="Architecture diagram" src="https://github.com/user-attachments/assets/db2a4060-6e7a-4919-8c2b-d8f605b7924e" />
 
-Run the site locally with:
+### How the chat works
 
+1. User types into the chat bar (visible on every page).
+2. `script.js` sends `POST /api/chat` with the message.
+3. The backend prepends a system prompt containing Brian's bio, projects, skills, and experience, then calls OpenAI.
+4. The response returns to the frontend and renders with a typewriter effect.
+5. Relevant page links are optionally surfaced as resource cards.
+
+<!-- PUT CHAT UI SCREENSHOT HERE
+  ![Chat UI](./assets/images/readme/chat.png)
+-->
+
+---
+
+## Site map
+
+<img width="1440" alt="Site map" src="https://github.com/user-attachments/assets/2cc345e2-81d4-4eff-ae54-c0f7f135381d" />
+
+| Page | File | Description |
+|------|------|-------------|
+| Landing | `index.html` | Hero with liquid canvas, animated title, chat bar |
+| About | `me.html` | Bio, experience timeline, education, languages |
+| Projects | `projects.html` | Horizontal carousel of hardware/software builds |
+| Skills | `skills.html` | Animated chip groups by category |
+| Fun | `fun.html` | Life outside engineering — skiing, golf, travel |
+| Contact | `contact.html` | Email, LinkedIn, GitHub, CV download |
+| Chat | `chat.html` | Dedicated full-screen chat view |
+
+---
+
+## Tech stack
+
+### Frontend (this repo)
+- **HTML5 / CSS3 / Vanilla JS** — no framework, no build step
+- **Canvas API** — liquid rainbow animation on the landing page
+- **Google Fonts** — Inter (body), Syne (contact headings)
+- **CSS animations** — fade-up, chip-pop, shimmer sweeps, typing indicator
+
+### Backend ([personal_website_server](https://github.com/kibeom12901/personal_website_server))
+- **Node.js + Express** — lightweight REST server
+- **OpenAI API** — GPT-4o-mini with a Brian-specific system prompt
+- **CORS** — configured for the GitHub Pages origin
+
+---
+
+## Local development
+
+### 1 — Frontend
 ```bash
 cd "/Users/bk/Documents/Personal Website"
 python3 -m http.server 8000
+# → http://localhost:8000
 ```
 
-Then open:
-
-```text
-http://localhost:8000
+### 2 — Backend
+```bash
+git clone https://github.com/kibeom12901/personal_website_server
+cd personal_website_server
+npm install
+cp .env.example .env   # paste your OPENAI_API_KEY
+npm start              # listens on :3001
 ```
 
-## Live Website
+> `script.js` targets `http://localhost:3001/api/chat` in development and the deployed URL in production.
 
-This frontend is intended to be deployed on GitHub Pages.
+---
 
-## Backend / GPT Chat
+## Deployment
 
-The chat feature uses a separate backend server.
+| Layer | Platform | Notes |
+|-------|----------|-------|
+| Frontend | GitHub Pages | Push to `main` → auto-deploys |
+| Backend | Render / Railway / Fly.io | Set `OPENAI_API_KEY` as an env var |
 
-Server repository:
+**Rule:** API keys live only in the backend's environment. Never commit them to the frontend.
 
-- `Add your server repo link here`
+---
 
-The frontend currently expects a chat API endpoint at:
-
-```text
-/api/chat
+## Project structure
+```
+personal_website/
+├── index.html
+├── me.html
+├── projects.html
+├── skills.html
+├── fun.html
+├── contact.html
+├── chat.html
+└── assets/
+    ├── css/
+    │   └── styles.css       ← all shared styles
+    ├── js/
+    │   └── script.js        ← canvas, chat, carousel logic
+    └── images/
+        ├── projects/
+        └── fun/
 ```
 
-For local development, the frontend can call a local server running on port `3001`.
+---
 
-## Deployment Notes
+## Backend API
 
-- GitHub Pages can host the frontend only
-- the GPT/chat backend must be deployed separately
-- API keys should stay in the backend, never in frontend JavaScript
+**[github.com/kibeom12901/personal_website_server](https://github.com/kibeom12901/personal_website_server)**
+```
+POST /api/chat
+Content-Type: application/json
 
-## Structure
+{ "message": "What projects has Brian built?" }
+```
+```json
+{
+  "answer": "Brian has built a VS1003B MP3 Player using STM32...",
+  "resources": [
+    { "label": "Projects", "href": "/projects.html" }
+  ]
+}
+```
 
-- `/index.html` - landing page
-- `/me.html` - about page
-- `/projects.html` - project highlights
-- `/skills.html` - skills page
-- `/fun.html` - fun and life page
-- `/contact.html` - contact page
-- `/chat.html` - chat interface
-- `/assets/css/styles.css` - site styling
-- `/assets/js/script.js` - interactivity and chat logic
-- `/assets/images/projects/` - project images
-- `/assets/images/fun/` - fun and travel images
+---
+
+## About Brian
+
+EE student at Tufts University. Interned at KETI (autonomous driving) and Stochastic (full-stack React). Currently serving in the Republic of Korea Army — open to roles from July 2026.
+
+[LinkedIn](https://www.linkedin.com/in/brian-kim-2b3b40262/) · [GitHub](https://github.com/kibeom12901) · [Email](mailto:Kimkibeom1290@gmail.com)
