@@ -14,7 +14,7 @@
 <img width="1400" alt="Landing page" src="https://github.com/user-attachments/assets/YOUR-UUID" />
 -->
 
-[Live Site](https://kibeom12901.github.io) · [Frontend Repo](https://github.com/kibeom12901/personal_website) · [Backend Repo](https://github.com/kibeom12901/personal_website_server)
+[Live Site](https://kibeom12901.github.io/personal_website) · [Frontend Repo](https://github.com/kibeom12901/personal_website) · [Backend Repo](https://github.com/kibeom12901/personal_website_server)
 
 </div>
 
