@@ -1585,7 +1585,7 @@ h3.ai-streaming-done {
     gap: 8px;
     overflow-x: auto;
     overflow-y: hidden;
-    bottom: 76px;
+    bottom: 84px;
     padding: 2px 2px 4px;
     -webkit-overflow-scrolling: touch;
   }
@@ -1616,6 +1616,10 @@ h3.ai-streaming-done {
   .quick-hide {
     bottom: 144px;
     font-size: 0.86rem;
+  }
+
+  body:not(.home) .quick-hide {
+    display: none;
   }
 
   body.quick-hidden .quick-hide {
@@ -1689,18 +1693,22 @@ h3.ai-streaming-done {
   }
 
   .profile-photo-wrap img {
+    aspect-ratio: 4 / 3;
+    max-height: 270px;
+    object-fit: cover;
+    object-position: center 18%;
     border-radius: 14px;
   }
 
   .content-card h1 {
-    font-size: clamp(2rem, 10vw, 2.8rem);
-    line-height: 0.96;
-    margin-bottom: 0.55rem;
+    font-size: clamp(1.7rem, 8.6vw, 2.35rem);
+    line-height: 1.02;
+    margin-bottom: 0.4rem;
   }
 
   .muted-line {
-    font-size: 0.95rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    line-height: 1.35;
   }
 
   .profile-tags span {
