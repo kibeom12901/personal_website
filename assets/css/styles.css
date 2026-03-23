@@ -1444,6 +1444,23 @@ h3.ai-streaming-done {
     cursor: auto;
   }
 
+  .page-content {
+    padding-bottom: 0;
+  }
+
+  .app-shell {
+    width: calc(100% - 24px);
+    margin: 92px auto 0;
+    max-height: none;
+    overflow: visible;
+    padding: 0 4px 300px;
+    border-radius: 0;
+  }
+
+  .content-card {
+    padding-bottom: 0;
+  }
+
   .chat-input,
   .chat-send,
   .nav-item {
@@ -1562,12 +1579,12 @@ h3.ai-streaming-done {
   }
 
   .quick-hide {
-    bottom: 236px;
+    bottom: 184px;
     font-size: 0.86rem;
   }
 
   body.quick-hidden .quick-hide {
-    bottom: 78px;
+    bottom: 70px;
   }
 
   body.quick-hidden .chat-bar {
@@ -1623,6 +1640,41 @@ h3.ai-streaming-done {
     height: 28px;
     border-radius: 9px;
     font-size: 16px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-photo-wrap {
+    padding: 0.65rem;
+    border-radius: 20px;
+  }
+
+  .profile-photo-wrap img {
+    border-radius: 14px;
+  }
+
+  .content-card h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 0.96;
+    margin-bottom: 0.55rem;
+  }
+
+  .muted-line {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .profile-tags span {
+    font-size: 0.83rem;
+    padding: 0.3rem 0.56rem;
+  }
+
+  .project-row {
+    --visible-cards: 1;
   }
 }
 
