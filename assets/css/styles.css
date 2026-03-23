@@ -1578,8 +1578,43 @@ h3.ai-streaming-done {
     height: 48px;
   }
 
+  body:not(.home) .bottom-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    bottom: 76px;
+    padding: 2px 2px 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body:not(.home) .bottom-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  body:not(.home) .nav-item {
+    flex: 0 0 auto;
+    min-width: 104px;
+    width: 104px;
+    height: 62px;
+    padding: 8px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+
+  body:not(.home) .nav-item.nav-more {
+    min-width: 62px;
+    width: 62px;
+  }
+
+  body:not(.home) .nav-label {
+    font-size: 11px;
+  }
+
   .quick-hide {
-    bottom: 184px;
+    bottom: 144px;
     font-size: 0.86rem;
   }
 
