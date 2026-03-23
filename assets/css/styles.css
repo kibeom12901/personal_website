@@ -1453,29 +1453,176 @@ h3.ai-streaming-done {
   #cursor,
   #cursor-ring,
   .hint {
-    display: none;
+    display: none !important;
+  }
+
+  .badge-btn {
+    top: max(18px, env(safe-area-inset-top));
+    left: 16px;
+    padding: 10px 14px 10px 12px;
+    gap: 10px;
+    border-radius: 18px;
+    font-size: 13px;
+  }
+
+  .badge-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
   }
 
   .hero {
-    padding-bottom: 210px;
+    height: auto;
+    min-height: 100dvh;
+    justify-content: flex-start;
+    padding: 118px 18px 250px;
+  }
+
+  .logo-wrap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+
+  .hero-greeting {
+    font-size: 14px;
+    line-height: 1.25;
+    max-width: 320px;
+    margin-bottom: 6px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.55rem, 12vw, 4.25rem);
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+    max-width: 340px;
+    margin-bottom: 18px;
   }
 
   .memoji {
-    width: 170px;
-    height: 170px;
+    width: 164px;
+    height: 164px;
   }
 
   .bottom-nav {
-    width: min(96vw, 560px);
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 3px;
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
   .nav-item {
     min-width: 0;
-    padding: 10px 14px;
-    font-size: 14px;
+    width: 100%;
+    height: 72px;
+    padding: 10px 8px;
+    gap: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    border-radius: 18px;
+  }
+
+  .nav-item.nav-more {
+    min-width: 0;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .nav-label {
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .chat-bar {
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    padding: 8px 8px 8px 18px;
+    border-radius: 24px;
+  }
+
+  .chat-input {
+    font-size: 15px;
+  }
+
+  .chat-send {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quick-hide {
+    bottom: 236px;
+    font-size: 0.86rem;
+  }
+
+  body.quick-hidden .quick-hide {
+    bottom: 78px;
+  }
+
+  body.quick-hidden .chat-bar {
+    bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  body.quick-hidden .bottom-nav {
+    display: none;
+  }
+
+  body.home.static-ui .hero {
+    padding: 118px 18px 258px;
+  }
+
+  body.home.static-ui .chat-bar {
+    bottom: max(10px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    padding: 8px 8px 8px 18px;
+    border-radius: 24px;
+  }
+
+  body.home.static-ui .chat-send {
+    width: 48px;
+    height: 48px;
+  }
+
+  body.home.static-ui .bottom-nav {
+    bottom: 88px;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: calc(100% - 24px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  body.home.static-ui .nav-item {
+    min-width: 0;
+    width: 100%;
+    height: 72px;
+    padding: 10px 8px;
+    gap: 6px;
+    border-radius: 18px;
+    font-size: 12px;
+  }
+
+  body.home.static-ui .nav-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    font-size: 16px;
   }
 }
 
