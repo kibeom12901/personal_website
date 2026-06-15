@@ -1043,6 +1043,40 @@ async function animatePageContent() {
    BOOTSTRAP
    ========================================================= */
 
+/* ── Scroll-reveal for inner pages ──────────────────────────────────────── */
+function initScrollReveal() {
+  if (staticUI) return;
+
+  // Targets: fun-stat boxes and fun-cards (spans only — no typewriter conflict)
+  // and project-directive wrapper on projects page.
+  const shell = document.querySelector('.app-shell');
+  if (!shell) return;
+
+  const targets = [
+    ...shell.querySelectorAll('.fun-stat, .fun-card, .project-directive'),
+  ];
+  if (!targets.length) return;
+
+  targets.forEach((el, i) => {
+    el.classList.add('sr');
+    el.style.transitionDelay = `${i * 0.07}s`;
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sr-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { root: shell, threshold: 0.12 }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+}
+
 attachChatSend();
 if (!staticUI) {
   ensureMoreNavButton();
@@ -1051,6 +1085,7 @@ if (!staticUI) {
 attachNavTransitions();
 initProjectCarousel();
 attachProjectImageFallbacks();
+initScrollReveal();
 
 // Run the arrival overlay (existing) and then kick off content streaming
 (function bootPage() {

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Projects | Brian Kim</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/styles.css"/>
 </head>
 <body class="projects-page">
@@ -114,5 +114,33 @@
 
 <p class="powered">Powered by Fastfolio</p>
 <script src="./assets/js/script.js"></script>
+<script>
+/* 3D card tilt with specular highlight — desktop only */
+var isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+document.querySelectorAll('.project-tile').forEach(function (card) {
+  if (isTouchDevice) return;
+  var shine = document.createElement('div');
+  shine.style.cssText = 'position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:4;mix-blend-mode:screen;transition:background 0.08s;';
+  card.style.position = 'relative';
+  card.appendChild(shine);
+
+  card.addEventListener('mousemove', function (e) {
+    var r = card.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width  - 0.5;
+    var y = (e.clientY - r.top)  / r.height - 0.5;
+    card.style.transition = 'box-shadow 0.1s';
+    card.style.transform  = 'perspective(900px) rotateY(' + (x * 24) + 'deg) rotateX(' + (-y * 18) + 'deg) scale(1.04)';
+    card.style.boxShadow  = (-x * 26) + 'px ' + (-y * 18) + 'px 56px rgba(37,99,235,0.28), 0 22px 44px rgba(0,0,0,0.55)';
+    shine.style.background = 'radial-gradient(ellipse at ' + ((x + 0.5) * 100) + '% ' + ((y + 0.5) * 100) + '%, rgba(255,255,255,0.17) 0%, transparent 65%)';
+  });
+
+  card.addEventListener('mouseleave', function () {
+    card.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.55s ease';
+    card.style.transform  = '';
+    card.style.boxShadow  = '';
+    shine.style.background = 'none';
+  });
+});
+</script>
 </body>
 </html>
